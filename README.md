@@ -1,2 +1,2 @@
-![Screenshot from 2023-10-10 16-24-03](https://github.com/kodokaii/Vulkan_mandelbrot_set/assets/110056528/43919f2c-7dba-491d-9329-00e90653e694)
-![Screenshot from 2023-10-10 16-27-43](https://github.com/kodokaii/Vulkan_mandelbrot_set/assets/110056528/eefe7901-acad-4b4b-a9f1-e49414610768)
+![Screenshot from 2023-10-10 16-24-03](https://github.com/kodokaii/Vulkan_mandelbrot_set/assets/110056528/998147db-8b13-42cf-a64b-b2b2976e96e8)
+![Screenshot from 2023-10-10 16-27-43](https://github.com/kodokaii/Vulkan_mandelbrot_set/assets/110056528/0e0b9d71-3858-4f29-b360-62d5e429aec0)
