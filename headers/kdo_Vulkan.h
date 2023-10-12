@@ -37,9 +37,11 @@ typedef double	dvec2[2];
 
 typedef struct Kdo_VkPush
 {
-	dvec2	center;
-	double	radius;
-	double	aspect;
+	dvec2		center;
+	dvec2		Z0;
+	double		radius;
+	double		aspect;
+	uint32_t	iterMax;
 }	Kdo_VkPush;
 
 typedef struct Kdo_Shader
@@ -94,8 +96,9 @@ typedef	struct Kdo_VkInitInfo
 	int							windowHeight;
 	Kdo_VkQueueInfo				queuesInfo[QUEUES_COUNT];
 	VkPresentModeKHR			presentMode;
-	dvec2						startPos;
+	dvec2						startCenter;
 	double						startRadius;
+	uint32_t					startIterMax;
 }	Kdo_VkInitInfo;
 
 typedef struct Kdo_VkWindow
@@ -214,8 +217,10 @@ typedef struct Kdo_VkDisplay
 
 typedef struct Kdo_VkCamera
 {
-	dvec2	pos;
-	double	radius;
+	dvec2		center;
+	dvec2		Z0;
+	double		radius;
+	uint32_t	iterMax;
 } Kdo_VkCamera;
 
 typedef struct Kdo_VkCompute

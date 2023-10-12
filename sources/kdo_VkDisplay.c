@@ -59,10 +59,13 @@ static void	kdo_updateRenderCommand(Kdo_Vulkan *vk)
 	vkCmdSetScissor(vk->display.renderPool[vk->display.currentImage].main, 0, 1, &scissor);
 	vkCmdBindPipeline(vk->display.renderPool[vk->display.currentImage].main, VK_PIPELINE_BIND_POINT_GRAPHICS, vk->graphicsPipeline.path);
 
-	push.center[0]	= vk->camera.pos[0];
-	push.center[1]	= vk->camera.pos[1];
+	push.center[0]	= vk->camera.center[0];
+	push.center[1]	= vk->camera.center[1];
+	push.Z0[0]	= vk->camera.Z0[0];
+	push.Z0[1]	= vk->camera.Z0[1];
 	push.radius		= vk->camera.radius;
 	push.aspect		= (double)vk->swapChain.imagesExtent.width / (double)vk->swapChain.imagesExtent.height;
+	push.iterMax	= vk->camera.iterMax;
 	vkCmdPushConstants(vk->display.renderPool[vk->display.currentImage].main, vk->graphicsPipeline.layout, VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(Kdo_VkPush), &push);
 
 	vkCmdDraw(vk->display.renderPool[vk->display.currentImage].main, 4, 1, 0, 0);
@@ -169,9 +172,10 @@ void	kdo_initRenderPool(Kdo_Vulkan *vk)
 void	kdo_mainLoop(Kdo_Vulkan *vk)
 {
 	kdo_initRenderPool(vk);
-	vk->camera.pos[0]	= vk->info.startPos[0];
-	vk->camera.pos[1]	= vk->info.startPos[1];
-	vk->camera.radius	= vk->info.startRadius;
+	vk->camera.center[0]	= vk->info.startCenter[0];
+	vk->camera.center[1]	= vk->info.startCenter[1];
+	vk->camera.radius		= vk->info.startRadius;
+	vk->camera.iterMax		= vk->info.startIterMax;	
 
 	while (!glfwWindowShouldClose(vk->window.path))
 	{
